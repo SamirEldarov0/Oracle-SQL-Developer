@@ -1,8 +1,4 @@
-1. Intro to oracleSQL 
-
-
-
-select 'Cabbarov' || ' Ali' from dual; 
+select 'Eldarov' || 'Samir' from dual; 
 
 CREATE TABLE employees (
     employee_id NUMBER(6) PRIMARY KEY,
