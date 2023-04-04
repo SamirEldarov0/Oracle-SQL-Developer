@@ -1,0 +1,98 @@
+CREATE TABLE branch(
+branch_id NUMBER PRIMARY KEY,
+branch_name NVARCHAR2(15) NOT NULL UNIQUE
+);
+
+CREATE TABLE workers(
+ID NUMBER CONSTRAINT ID_a PRIMARY KEY,
+name VARCHAR2(30) CONSTRAINT na_n NOT NULL,
+surname VARCHAR2(30) CONSTRAINT su_n NOT NULL,
+salary NVARCHAR2(15) CONSTRAINT sa_n NOT NULL,
+Card_number NUMBER(15) CONSTRAINT c_n NOT NULL UNIQUE,
+branch_id NUMBER ,
+position NVARCHAR2(10) CONSTRAINT ve_n NOT NULL,
+CONSTRAINT f_fk FOREIGN KEY (branch_id) REFERENCES FILIAL(branch_id)
+);
+
+
+
+INSERT INTO branch VALUES(1, 'q.qarayev');
+INSERT INTO branch VALUES(2, 'elmeler');
+INSERT INTO branch VALUES(3, 'genclik');
+
+INSERT INTO workers VALUES(1,'ali','cabbarov', 1530, 145896587423516, 1, 'Back-end');
+INSERT INTO workers VALUES(2,'nail','rehimli', 1569, 145896584125986, 3,  'Front-end');
+INSERT INTO workers VALUES(3,'allahyar','ahmadov', 1460, 145896587421647, 2, 'sql dev');
+
+select * from workers;
+select * from branch;
+
+select i.id, i.name, i.surname, f.branch_name, i.position FROM workers i 
+INNER JOIN branch f on i.branch_id = f.branch_id;
+
+DROP TABLE branch;
+
+SELECT * FROM USER_CONSTRAINTS WHERE TABLE_NAME = 'WORKERS';
+
+ALTER TABLE workers DROP CONSTRAINT F_FK;
+
+DROP TABLE  workers;
+
+CREATE TABLE workers(
+id NUMBER CONSTRAINT id_p PRIMARY KEY,
+name VARCHAR2(30) CONSTRAINT na_n NOT NULL,
+surname VARCHAR2(30) CONSTRAINT su_n NOT NULL,
+salary NVARCHAR2(15) CONSTRAINT sa_n NOT NULL,
+Card_number NUMBER(15) CONSTRAINT c_n NOT NULL UNIQUE,
+Branch_id NUMBER ,
+position NVARCHAR2(10) CONSTRAINT ve_n NOT NULL,
+CONSTRAINT f_fk FOREIGN KEY (branch_id) REFERENCES BRANCH(branch_id) ON DELETE SET NULL
+);
+
+DELETE FROM branch WHERE branch_id=1;
+
+DROP TABLE workers;
+
+CREATE TABLE Workers(
+id NUMBER CONSTRAINT id_p PRIMARY KEY,
+name VARCHAR2(30) CONSTRAINT na_n NOT NULL,
+surname VARCHAR2(30) CONSTRAINT su_n NOT NULL,
+salary NVARCHAR2(15) CONSTRAINT sa_n NOT NULL,
+Card_number NUMBER(15) CONSTRAINT c_n NOT NULL UNIQUE,
+branch_id NUMBER ,
+position NVARCHAR2(10) CONSTRAINT ve_n NOT NULL,
+CONSTRAINT f_fk FOREIGN KEY (branch_id) REFERENCES BRANCH(branch_id) ON DELETE CASCADE
+);
+
+DELETE FROM branch WHERE branch_id=1;
+
+ALTER TABLE Workers MODIFY position INVISIBLE;
+
+ALTER TABLE Workers MODIFY position VISIBLE;
+
+INSERT INTO tedaruk
+(tedaruk_id, tedaruk_name)
+SELECT account_no, name
+FROM customers
+WHERE customer_id > 5000;
+
+SELECT count(*)
+FROM customers
+WHERE customer_id > 5000;
+
+
+CREATE TABLE contacts
+( contact_id number(10) not null,
+  last_name varchar2(50) not null,
+  first_name varchar2(50) not null,
+  address varchar2(50),
+  city varchar2(50),
+  state varchar2(20),
+  zip_code varchar2(10),
+  CONSTRAINT contacts_pk PRIMARY KEY (contact_id)
+);
+
+INSERT INTO contacts
+(contact_id, last_name, first_name, address)
+VALUES
+(1000, 'nail', 'rehimli', '10 qarayev St.');
