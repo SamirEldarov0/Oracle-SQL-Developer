@@ -2,7 +2,7 @@
 
 
 
-select 'Cabbarov' || ' Ali' from dual; 
+select 'eldarov' || ' samir' from dual; 
 
 CREATE TABLE employees (
     employee_id NUMBER(6) PRIMARY KEY,
