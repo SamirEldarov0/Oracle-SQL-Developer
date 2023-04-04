@@ -1,0 +1,71 @@
+CREATE TABLE employees
+( employee_number number(10) NOT NULL,
+  employee_name varchar2(50) NOT NULL,
+  department_id number(10),
+  salary number(6),
+  CONSTRAINT employees_pk PRIMARY KEY (employee_number)
+);
+
+
+ALTER TABLE employees
+  DROP COLUMN salary;
+
+
+CREATE TABLE departments
+( department_id number(10) NOT NULL,
+  department_name varchar2(50) NOT NULL,
+  CONSTRAINT departments_pk PRIMARY KEY (department_id)
+);
+
+
+ALTER TABLE departments
+  RENAME COLUMN department_name TO dept_name;
+
+
+CREATE TABLE employees
+( employee_number number(10) NOT NULL,
+  employee_name varchar2(50) NOT NULL,
+  department_id number(10),
+  CONSTRAINT employees_pk PRIMARY KEY (employee_number)
+);
+
+ALTER TABLE employees
+  MODIFY employee_name varchar2(75);
+
+
+
+CREATE TABLE Worker(
+id NUMBER CONSTRAINT id_pk PRIMARY KEY,
+name VARCHAR2(30) CONSTRAINT name_nn NOT NULL,
+surname VARCHAR2(30) CONSTRAINT su_nn NOT NULL,
+salary NVARCHAR2(15) CONSTRAINT sa_nn NOT NULL,
+Card_number NUMBER(15) CONSTRAINT c_n_u NOT NULL UNIQUE,
+vezife NVARCHAR2(10) CONSTRAINT ve_nn NOT NULL
+);
+
+INSERT INTO Worker VALUES(1,'ali','cabbarov', 1530, 14584569658412645986, 'song');
+INSERT INTO Worker VALUES(2,'rehim','kerimov', 1569, 145458964356584125986, 'police');
+
+INSERT INTO Worker VALUES(3,'rufet','ahmedov', 1460, 1458963456587421647, 'dkt');
+
+select * from user_constraints where table_name = 'qwe';
+
+select * from user_constraints where constraint_name = 'name';
+
+
+ALTER TABLE Worker RENAME CONSTRAINT NAME_NN TO NA_NN;
+
+ALTER TABLE Worker DROP CONSTRAINT VE_NN;
+ALTER TABLE Worker DROP CONSTRAINT ID_PK;
+
+ALTER TABLE Worker ADD CONSTRAINT VE_U UNIQUE(vezife);
+ALTER TABLE Worker ADD CONSTRAINT ID_PK PRIMARY KEY(ID);
+ 
+ALTER TABLE Worker MODIFY VEZIFE NOT NULL;
+
+ALTER TABLE Worker ADD CONSTRAINT ID_PK PRIMARY KEY(vezife);
+
+DESC Worker;
+
+
+
