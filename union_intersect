@@ -1,0 +1,47 @@
+use SQLFULL
+GO
+create table FirstGroup(
+Id int primary key identity(1,1),
+Name nvarchar(30),
+Surname nvarchar(30),
+Age int,
+Gmail nvarchar(30) unique
+);
+
+use SQLFULL
+GO
+create table SecondGroup(
+ID int primary key identity(1,1),
+Name nvarchar(25),
+Surname nvarchar(25),
+Age int,
+Gmail nvarchar(30)
+);
+drop table SecondGroup
+
+insert into SecondGroup
+values('Cumar','Yusifov',27,null),
+	  ('Samir','Eldarov',20,'eldarovsamir535@gmail.com'),
+	  ('Kamil','Eliyev',17,'kamil678@gmail.com'),
+	  ('Sadik','Ismayilov',16,null)
+
+insert into FirstGroup(Name,Surname,Age,Gmail)
+values('Samir','Eldarov',20,'eldarovsamir535@gmail.com'),
+	  ('Fariz','Eldarov',19,'eldarovfariz@gmail.com'),
+	  ('Eli','Kerimov',19,null)
+
+select*from FirstGroup
+union
+select*from SecondGroup
+
+select*from FirstGroup
+union all
+select*from SecondGroup
+
+select*from FirstGroup
+intersect
+select*from SecondGroup
+
+select*from FirstGroup
+minus
+select*from SecondGroup
