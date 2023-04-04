@@ -16,13 +16,13 @@ CONSTRAINT f_fk FOREIGN KEY (branch_id) REFERENCES FILIAL(branch_id)
 
 
 
-INSERT INTO branch VALUES(1, 'q.qarayev');
-INSERT INTO branch VALUES(2, 'elmeler');
+INSERT INTO branch VALUES(1, '28 may');
+INSERT INTO branch VALUES(2, 'nizami');
 INSERT INTO branch VALUES(3, 'genclik');
 
-INSERT INTO workers VALUES(1,'ali','cabbarov', 1530, 145896587423516, 1, 'Back-end');
-INSERT INTO workers VALUES(2,'nail','rehimli', 1569, 145896584125986, 3,  'Front-end');
-INSERT INTO workers VALUES(3,'allahyar','ahmadov', 1460, 145896587421647, 2, 'sql dev');
+INSERT INTO workers VALUES(1,'samir','eldarov', 1600, 1458965874247239, 1, 'Back-end');
+INSERT INTO workers VALUES(2,'kenan','mahmudov', 1200, 145896584125986, 3,  'Front-end');
+INSERT INTO workers VALUES(3,'sukur','ibadov', 1000, 145896587421647, 2, 'sql dev');
 
 select * from workers;
 select * from branch;
