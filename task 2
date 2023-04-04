@@ -43,7 +43,7 @@ Card_number NUMBER(15) CONSTRAINT c_n_u NOT NULL UNIQUE,
 vezife NVARCHAR2(10) CONSTRAINT ve_nn NOT NULL
 );
 
-INSERT INTO Worker VALUES(1,'ali','cabbarov', 1530, 14584569658412645986, 'song');
+INSERT INTO Worker VALUES(1,'samir','eldaarov', 1530, 14584569658412645986, 'song');
 INSERT INTO Worker VALUES(2,'rehim','kerimov', 1569, 145458964356584125986, 'police');
 
 INSERT INTO Worker VALUES(3,'rufet','ahmedov', 1460, 1458963456587421647, 'dkt');
