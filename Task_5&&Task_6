@@ -1,0 +1,5 @@
+SELECT*FROM sys.loan
+
+select r.rev_name,m.mov_title,ra.rev_stars from reveiwer r,movie m,rating ra where rev_name is not null order by rev_name,mov_title,rev_stars asc
+
+select m.mov_title,MAX(ra.rev_stars) as max from movie m inner join rating ra on m.mov_id=ra.mov_id group by mov_title order by mov_title asc;
