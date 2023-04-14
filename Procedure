@@ -1,0 +1,9 @@
+CREATE PROCEDURE SelectAllCustomers @Name nvarchar(30), @Surname nvarchar(30),@Age int
+AS
+SELECT * FROM Customers WHERE Name = @Name AND Surname = @Surname AND Age=@Age
+GO;
+
+EXEC SelectAllCustomers @Name = 'Samir', @Surname = 'Eldarov', Age=20;
+
+
+
