@@ -1,9 +1,10 @@
-CREATE PROCEDURE SelectAllCustomers @Name nvarchar(30), @Surname nvarchar(30),@Age int
+
+CREATE PROCEDURE SelectAllCustomers @ID int primary key,@Name nvarchar(30), @Surname nvarchar(30),@Age int
 AS
-SELECT * FROM Customers WHERE Name = @Name AND Surname = @Surname AND Age=@Age
+SELECT * FROM Customers WHERE ID=@ID AND Name = @Name AND Surname = @Surname AND Age=@Age
 GO;
 
-EXEC SelectAllCustomers @Name = 'Samir', @Surname = 'Eldarov', Age=20;
+EXEC SelectAllCustomers @ID=1,@Name = 'Samir', @Surname = 'Eldarov', Age=20;
 
 
 
