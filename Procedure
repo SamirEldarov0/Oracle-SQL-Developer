@@ -1,4 +1,12 @@
-
+create table Customers(
+ID int primary key,
+Name nvarchar(30),
+Surname nvarchar(30),
+Age int
+)
+insert into Customers(Name,Surname,Age)
+values('Samir','Eldarov','20'),
+      ('Kenan','Mahmudlu','20')
 CREATE PROCEDURE SelectAllCustomers @ID int primary key,@Name nvarchar(30), @Surname nvarchar(30),@Age int
 AS
 SELECT * FROM Customers WHERE ID=@ID AND Name = @Name AND Surname = @Surname AND Age=@Age
