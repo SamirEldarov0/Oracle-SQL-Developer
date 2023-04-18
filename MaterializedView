@@ -1,0 +1,41 @@
+create table random_table(
+ID int,
+val decimal
+)
+insert into random_table(ID,val)
+select 1,RAND() from generate_series(1,1000000);
+
+insert into random_table
+select 2,RAND() from generate_series(1,1000000);
+
+select ID,AVG(val),count(1) from random_table
+
+select count(1) from random_table group by ID
+
+--if u create a materialized view,u're gonna understand how fast the executen will happen
+
+create materialized view mv_random_table
+as
+select ID,AVG(val),count(1) from random_table
+
+select*from mv_random_table   
+
+delete from random_table where ID=1
+
+select*from mv_random_table--materialized view-den silinmeyecek
+
+refresh materialized view mv_random_table
+
+create materialized view vw_random_table
+as
+select ID,AVG(val),count(1) from random_table
+
+select*from vw_random_table--it still take some time,view select ID,AVG(val),count(1) from random_table kimi run olunur
+
+-- Difference between view and mv ,View will only store the select statement when it's created
+--MV store both the select statement as well as data returned from that select statement
+
+
+
+
+
